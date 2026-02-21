@@ -1,133 +1,187 @@
-# Basic Routes Lab
+🎬 Movie Directory App
 
-## Lab Overview
-In this lab, you will build a Movie Directory application that displays a list of directors and their movies. The application will allow users to:
+A React-based movie directory application that allows users to explore famous directors and their iconic movies. The app demonstrates nested routing, dynamic routes, and form handling using React and React Router.
 
-* View a list of directors.
-* Add a new director.
-* Click on a director to see their details and a list of their movies.
-* Click on a movie to see its details.
-* Add a new movie to a director’s list and be redirected to the new movie’s detail page after submission.
+## Overview
 
+The Movie Directory App allows users to:
 
-## Your Responsibilities:
-All components and data fetching are already set up for you. Your task is to implement client-side routing using React Router v6 by:
-1. Installing React Router v6.
-2. Setting up routing using BrowserRouter, Routes, and Route.
-3. Implementing nested routes so that movies appear under each director’s details.
-4. Use the useOutletContect hook to pass data from parent to child routes.
-5. Using NavLinks and Links to create user-friendly navigation.
-6. Using useNavigate to programmatically navigate after adding a new director or movie.
+View a homepage introduction
 
-You'll need to use what you've learned about all three topics:
-* React Router v6
-* Nested Routing
-* Programmatic Navigation
+Navigate between pages using a navigation bar
 
-## Setup
+Browse a list of directors
 
-Our `src` folder contains the following JavaScript files:
+View individual director details
 
-```txt
+Add new directors
+
+Add new movies under specific directors
+
+View individual movie details
+
+Handle invalid routes gracefully with an error page
+
+This project focuses heavily on nested routes and dynamic routing using React Router.
+
+🚀 Live Features
+🏠 Home Page
+
+Welcoming introduction to the app.
+
+## About Page
+
+Provides details about the application.
+
+🎥 Directors Section
+
+View a list of directors
+
+Click a director to see details
+
+Add a new director
+
+Add movies to a director
+
+View specific movie details
+
+## Error Handling
+
+Displays a custom error page for unknown routes.
+
+🛠️ Built With
+
+React
+
+React Router DOM (v6+)
+
+Vite
+
+Vitest
+
+React Testing Library
+
+## Project Structure
 src/
+│
 ├── components/
-    ├── NavBar.jsx
-    ├── NavBar.css
-└── pages/
-    ├── About.jsx
-    ├── DirectorCard.jsx
-    ├── DirectorContainer.jsx
-    ├── DirectorForm.jsx
-    ├── DirectorList.jsx
-    ├── Home.jsx
-    ├── MovieCard.jsx
-    ├── MovieForm.jsx
+│   ├── NavBar.jsx
+│   ├── DirectorContainer.jsx
+│   ├── DirectorList.jsx
+│   ├── DirectorForm.jsx
+│   ├── DirectorCard.jsx
+│   ├── MovieCard.jsx
+│   ├── MovieForm.jsx
+│   └── ErrorPage.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   └── About.jsx
+│
+├── __tests__/
+│   └── App.test.jsx
+│
 ├── App.jsx
-├── index.css
-├── main.jsx
-```
+└── main.jsx
 
-You'll need to fill out these various files to get your app up and running.
+## Routing Architecture
 
-To start up the lab, first run `npm install`, as per usual. Then install react router: `npm install react-router-dom@6`. Then run `npm run server` to start your `json-server` and `npm run dev` to open the application in the browser.
+This project uses nested routing with React Router:
 
-### App.jsx
+/ → Home
 
-You'll be adding the routes you create to this component. You'll need to provide the following routes, nested as shown below:
+/about → About
 
-* "/" : Home
-* "/about" : About
-* "/directors" : DirectorContainer
-    * "" : DirectorList
-    * "new" : DirectorForm
-    * ":id" : DirectorCard
-        * "movies/new" : MovieForm
-        * "movies/:movieId" : MovieCard
+/directors → Director List
 
-You are welcome to also create an Error route if you wish.
+/directors/new → Add Director
 
-### main.jsx
+/directors/:id → Director Details
 
-Our `main.jsx` file is currently just rendering App, an empty component.
+/directors/:id/movies/new → Add Movie
 
-## Components
+/directors/:id/movies/:movieId → Movie Details
 
-### NavBar
+* → Error Page
 
-This component needs to render three `NavLink` components. They will be for `/`,
-`/directors`, and `/about`. The NavBar component is already imported into the main pages and will only need to be added if you choose to create an ErrorPage.
+## Installation & Setup
+1️⃣ Clone the repository
+git clone <your-repo-url>
+cd Movie-Directory-App
+2️⃣ Install dependencies
+npm install
+3️⃣ Install React Router (if not installed)
+npm install react-router-dom
+4️⃣ Start development server
+npm run dev
 
-## Pages
+Open:
 
-### About
+http://localhost:5173
+🧪 Running Tests
 
-This component should render on the `/about` route. All the code is built for you 
-in the component, so no further changes need to be made.
+This project uses Vitest and React Testing Library.
 
-### DirectorCard
-This component should render on the `/directors/:id` route and is the parent route 
-to all movie routes. You'll need to implement `useOutletContext`, `useParams`, 
-and `<Outlet />` in this component to set the correct director and nest the child route 
-components with the proper context.
+Run tests with:
 
-### DirectorContainer
-This component should render on the `/directors` route and is the parent route to all 
-other director routes. This component contains the state of all directors. You'll need
-to give child routes access to the appropriate data and may need to define some functions 
-to update state appropriately.
+npm test
 
-### DirectorForm
-This component should render on the `/directors/new` route. Most of the code is built 
-out for you, but you will need to implement navigation and state changes on form submission.
+Tests include:
 
-### DirectorList
-This component should render on the `/directors` route, but nested under DirectorContainer. 
-Currently directors is set to null and needs to be updated using the state of its parent 
-route. All the rest of the code is built out for you.
+App rendering without crashing
 
-### Home
+Handling invalid routes gracefully
 
-This component should render on the `/` route. It's mostly set up for you but will 
-need to be edited to render user-friendly links to the directors and about pages.
+### Example Test Structure
+render(
+  <MemoryRouter>
+    <App />
+  </MemoryRouter>
+);
 
-### MovieCard
+We wrap the app with MemoryRouter in tests to provide router context.
 
-This component should render on the `/directors/:id/movies/:id` route. This component is 
-already set up to render the details of one movie. You'll need to figure out how to get 
-the specific movie through a mix of useOutletContext and useParams.
+📸 Screenshots (Optional)
 
-### MovieForm
-This component should render on the `/directors/:id/movies/new` route. Like the `DirectorForm`, 
-you'll need to handle state changes and navigation on form submission. You'll also need 
-to update the director, which is currently set to null, using outlet context and params.
+You can add screenshots here:
 
-### ErrorPage (Optional)
+/screenshots/home.png
+/screenshots/directors.png
+/screenshots/movies.png
+📚 Learning Objectives
 
-If you choose, you can create a new component within the `pages` folder for our
-`ErrorPage`. This page should display our `NavBar` component, along with a
-user-friendly 
-message like "Oops! Looks like something went wrong."
+This project demonstrates:
 
-## Resources
+Nested routing with React Router v6
 
-- [React Router](https://reactrouter.com/en/main)
+Dynamic route parameters
+
+Outlet usage
+
+Navigation with NavLink
+
+Form handling in React
+
+Component composition
+
+Basic unit testing with Vitest
+
+### Future Improvements
+
+Add backend integration (Express / JSON Server)
+
+Persist data using local storage or database
+
+Add edit & delete functionality
+
+Add search and filtering
+
+Improve UI styling (Tailwind or Bootstrap)
+
+#### Author
+
+Your Name Here
+
+#### License
+
+This project is open-source and available for educational purposes.
