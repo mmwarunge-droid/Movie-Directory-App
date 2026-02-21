@@ -1,0 +1,32 @@
+{
+  "name": "product-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+  "dev": "concurrently \"npm:kill-server\" \"vite\" \"npm:server\"",
+  "kill-server": "lsof -ti tcp:5000 | xargs -r kill -9",
+  "server": "json-server --watch db.json --port 5000",
+  "build": "vite build",
+  "preview": "vite preview",
+  "test": "vitest"
+},
+  "dependencies": {
+    "axios": "^1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "react-router-dom": "^6.15.0",
+    "sweetalert2": "^11.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.2.0",
+    "jsdom": "^28.1.0",
+    "json-server": "^0.17.3",
+    "vite": "^4.4.0",
+    "vitest": "^0.34.6"
+  }
+}
