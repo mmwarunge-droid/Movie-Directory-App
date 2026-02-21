@@ -62,24 +62,25 @@ Vitest
 React Testing Library
 
 ## Project Structure
+
 src/
 │
 ├── components/
-│   ├── NavBar.jsx
-│   ├── DirectorContainer.jsx
-│   ├── DirectorList.jsx
-│   ├── DirectorForm.jsx
-│   ├── DirectorCard.jsx
-│   ├── MovieCard.jsx
-│   ├── MovieForm.jsx
-│   └── ErrorPage.jsx
+│ ├── NavBar.jsx
+│ ├── DirectorContainer.jsx
+│ ├── DirectorList.jsx
+│ ├── DirectorForm.jsx
+│ ├── DirectorCard.jsx
+│ ├── MovieCard.jsx
+│ ├── MovieForm.jsx
+│ └── ErrorPage.jsx
 │
 ├── pages/
-│   ├── Home.jsx
-│   └── About.jsx
+│ ├── Home.jsx
+│ └── About.jsx
 │
-├── __tests__/
-│   └── App.test.jsx
+├── **tests**/
+│ └── App.test.jsx
 │
 ├── App.jsx
 └── main.jsx
@@ -102,9 +103,10 @@ This project uses nested routing with React Router:
 
 /directors/:id/movies/:movieId → Movie Details
 
-* → Error Page
+- → Error Page
 
 ## Installation & Setup
+
 1️⃣ Clone the repository
 git clone <your-repo-url>
 cd Movie-Directory-App
@@ -118,7 +120,8 @@ npm run dev
 Open:
 
 http://localhost:5173
-🧪 Running Tests
+
+### Running Tests
 
 This project uses Vitest and React Testing Library.
 
@@ -133,22 +136,16 @@ App rendering without crashing
 Handling invalid routes gracefully
 
 ### Example Test Structure
+
 render(
-  <MemoryRouter>
-    <App />
-  </MemoryRouter>
+<MemoryRouter>
+<App />
+</MemoryRouter>
 );
 
 We wrap the app with MemoryRouter in tests to provide router context.
 
-📸 Screenshots (Optional)
-
-You can add screenshots here:
-
-/screenshots/home.png
-/screenshots/directors.png
-/screenshots/movies.png
-📚 Learning Objectives
+### Learning Objectives
 
 This project demonstrates:
 
@@ -180,7 +177,7 @@ Improve UI styling (Tailwind or Bootstrap)
 
 #### Author
 
-Your Name Here
+Mark Warunge
 
 #### License
 
