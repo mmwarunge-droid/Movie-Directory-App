@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useInRouterContext } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -10,7 +10,7 @@ import MovieCard from "./components/MovieCard";
 import MovieForm from "./components/MovieForm";
 import ErrorPage from "./components/ErrorPage";
 
-function App () {
+function AppRoutes () {
     return (
         <>
     <NavBar />
@@ -33,4 +33,7 @@ function App () {
     )
 }
 
-export default App
+export default function App() {
+  const inRouter = useInRouterContext();
+  return inRouter ? <AppRoutes /> : <BrowserRouter><AppRoutes /></BrowserRouter>;
+}
