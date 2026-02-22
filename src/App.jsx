@@ -10,10 +10,13 @@ import MovieCard from "./components/MovieCard";
 import MovieForm from "./components/MovieForm";
 import ErrorPage from "./components/ErrorPage";
 
+// This component contains all the route definitions
 function AppRoutes () {
     return (
         <>
+        {/* Navigation bar will appear on all pages */}
     <NavBar />
+    {/* Routes component holds all individual Route definitions */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -26,13 +29,13 @@ function AppRoutes () {
             <Route path="movies/:movieId" element={<MovieCard />} />
           </Route>
         </Route>
-
+        {/* Catch-all route for invalid URLs */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
         </>
     )
 }
-
+ // Main App component
 export default function App() {
   const inRouter = useInRouterContext();
   return inRouter ? <AppRoutes /> : <BrowserRouter><AppRoutes /></BrowserRouter>;
